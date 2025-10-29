@@ -40,7 +40,7 @@ SORTING_NAMES: list[str] = [
 
 MAX_LEN_OF_SORTING_NAME: int = len(max(SORTING_NAMES, key=lambda x: len(x)))
 
-SORTINGS_INDEXES: list[int] = list(range(len(SORTING_FUNCTIONS)))
+SORTING_INDEXES: list[int] = list(range(len(SORTING_FUNCTIONS)))
 
 INPUT_DATA_COUNT_FOR_ALL: int = 7
 INPUT_DATA_COUNT_FOR_ONE: int = 10
@@ -65,8 +65,8 @@ PROGRAM_CMD_LIST: list[str] = [CALC_ALL_ALGORITHMS_CMD,
 HELP_CMD_LIST: list[str] = PROGRAM_CMD_LIST + ["decl", "inds"]
 
 def getCsvFileName(index: int) -> str:
-    if index not in SORTINGS_INDEXES:
+    if index not in SORTING_INDEXES:
         raise IndexError("Index must be in diaposon of"+
-                         f"[0, {SORTINGS_INDEXES[-1]}]")
+                         f"[0, {SORTING_INDEXES[-1]}]")
     
     return f"table_of_{index}.csv"

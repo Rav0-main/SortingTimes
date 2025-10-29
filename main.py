@@ -11,7 +11,7 @@ from documentation import (printDocumentationsOf,
 
 from sys import argv
 
-from settings import (SORTINGS_INDEXES,
+from settings import (SORTING_INDEXES,
                       PROGRAM_CMD_LIST,
                       CALC_ALL_ALGORITHMS_CMD,
                       CALC_ONE_ALGORITHM_CMD,
@@ -67,10 +67,10 @@ def main():
         
         sortingIndex = int(argv[2])
 
-        if sortingIndex not in SORTINGS_INDEXES:
+        if sortingIndex not in SORTING_INDEXES:
             printError(
                 "\033[1mНеверный индекс сортировки ('ind').\033[0m\n"+
-                f"Индекс сортировки должен быть в отрезке [{min(SORTINGS_INDEXES)}, {max(SORTINGS_INDEXES)}].\n"+
+                f"Индекс сортировки должен быть в отрезке [{min(SORTING_INDEXES)}, {max(SORTING_INDEXES)}].\n"+
                 f"Для справки используйте 'python main.py {SHOW_DOCUMENTATION_CMD} {CALC_ONE_ALGORITHM_CMD}'."
             )
             

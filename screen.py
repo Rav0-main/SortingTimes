@@ -14,7 +14,7 @@ from os.path import exists as fileExists
 _stopwatch = StopwatchOfFunctions(*SORTING_FUNCTIONS)
 
 def calcAllAlgorithms(countOfOneExecution: int):
-    sortingIndexes: list[int] = SORTINGS_INDEXES.copy()
+    sortingIndexes: list[int] = SORTING_INDEXES.copy()
     testcaseSizes: list[int] = []
     i = 1
 
@@ -53,7 +53,7 @@ def calcAllAlgorithms(countOfOneExecution: int):
     plt.figure(figsize=(12, 6))
 
     executionTimes: list[float] = []
-    for sortingIndex in SORTINGS_INDEXES:
+    for sortingIndex in SORTING_INDEXES:
         executionTimes = _stopwatch.getTimesOf(sortingIndex)
         plt.plot(testcaseSizes,
                  executionTimes,
@@ -150,21 +150,21 @@ def showGraphicsOf(sortingIndexes: list[str]) -> None:
     foundNotValidSortingIndex: bool = False
 
     if(sortingIndexes == []):
-        sortingIndexesToCheck = SORTINGS_INDEXES
+        sortingIndexesToCheck = SORTING_INDEXES
     else:
         k: int = 0
         hashedSortingIndexes: dict[str, bool] = {}
         for i in range(len(sortingIndexes)):
             if(sortingIndexes[i] not in hashedSortingIndexes and
                sortingIndexes[i].isdigit() and
-               int(sortingIndexes[i]) in SORTINGS_INDEXES):
+               int(sortingIndexes[i]) in SORTING_INDEXES):
                 
                 sortingIndexes[k] = sortingIndexes[i]
                 k += 1
 
             elif(sortingIndexes[i] not in hashedSortingIndexes and
                  (not sortingIndexes[i].isdigit() or
-                 int(sortingIndexes[i]) not in SORTINGS_INDEXES)):
+                 int(sortingIndexes[i]) not in SORTING_INDEXES)):
 
                 printWarning(f"Введенный индекс: \033[1m{sortingIndexes[i]}\033[0m "+ 
                              "является неверным.")
